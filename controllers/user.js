@@ -46,6 +46,7 @@ export const Register = async (req, res, next)=>{
 
         sendcookie(user, res, "Registered Successfully", 201);
     } catch (error) {
+        
         next(error);
     }
 };
