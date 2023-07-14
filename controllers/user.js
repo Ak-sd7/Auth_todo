@@ -28,7 +28,7 @@ export const Login = async(req, res, next)=>{
     }
 }
 
-export const Register = async (req, res)=>{
+export const Register = async (req, res, next)=>{
     try {
         const {name, email, password} = req.body;
         let user = await User.findOne({email});
@@ -48,7 +48,7 @@ export const Register = async (req, res)=>{
     } catch (error) {
         next(error);
     }
-}
+};
 
 export const GetDetail = (req, res)=>{
 
