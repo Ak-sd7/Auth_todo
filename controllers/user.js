@@ -8,8 +8,7 @@ import { sendcookie } from "../utils/features.js";
 export const Login = async(req, res, next)=>{
     try {
         const {email, password} = req.body;
-        const user = await User.findOne({email}).select("+password").maxTimeMS(20000);
-        if(!user)
+        const user = await User.findOne({email}).select("+password")
             return next(new ErrorHandler("Invalid Email/Password", 404));
         // if(!user)
         //     return res.status(404).json({
@@ -31,7 +30,7 @@ export const Login = async(req, res, next)=>{
 export const Register = async (req, res, next)=>{
     try {
         const {name, email, password} = req.body;
-        let user = await User.findOne({email}).maxTimeMS(20000);
+        let user = await User.findOne({email});
         if(user)
             return next(new ErrorHandler("User already exist", 404));
         // if(user)
