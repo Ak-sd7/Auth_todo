@@ -9,7 +9,7 @@ export const Login = async(req, res, next)=>{
     try {
         const {email, password} = req.body;
         const user = await User.findOne({email}).select("+password")
-            return next(new ErrorHandler("Invalid Email/Password", 404));
+            if(!user) return next(new ErrorHandler("Invalid Email/Password", 404));
         // if(!user)
         //     return res.status(404).json({
         //         success :  false,
