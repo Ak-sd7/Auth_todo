@@ -21,7 +21,6 @@ app.use(
         credentials: true, // the cookie would be created while we make the frontend
     })
 );
-
 // Using Routes
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/tasks", taskRouter);
